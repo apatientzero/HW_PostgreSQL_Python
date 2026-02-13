@@ -144,7 +144,7 @@ def find_client(conn, first_name=None, last_name=None, email=None, phone=None):
 
 # --- if __name__ == "__main__":---
 if __name__ == "__main__":
-    # Подключение (замените параметры под вашу систему)
+    # Подключение
     with psycopg2.connect(database="clients_db", user="postgres", password="postgres") as conn:
         create_db(conn)
         print("База данных создана")
@@ -185,5 +185,6 @@ if __name__ == "__main__":
         all_clients = find_client(conn)
         for c in all_clients:
             print(c)
+
 
     print("\nРабота завершена")

@@ -3,7 +3,7 @@ from psycopg2 import sql
 
 
 def create_db(conn):
-    """Client and phone."""
+    """Client and phone"""
     with conn.cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS client (
@@ -24,7 +24,7 @@ def create_db(conn):
 
 
 def add_client(conn, first_name, last_name, email, phones=None):
-    """Add new client. phones — список строк (может быть None)."""
+    """Add new client. phones — список строк (может быть None)"""
     with conn.cursor() as cur:
         cur.execute("""
             INSERT INTO client (first_name, last_name, email)
@@ -81,7 +81,7 @@ def change_client(conn, client_id, first_name=None, last_name=None, email=None, 
 
 
 def delete_phone(conn, client_id, phone):
-    """Delete a specific phone number from the client."""
+    """Delete a specific phone number from the client"""
     with conn.cursor() as cur:
         cur.execute("""
             DELETE FROM phone
@@ -98,7 +98,7 @@ def delete_client(conn, client_id):
 
 
 def find_client(conn, first_name=None, last_name=None, email=None, phone=None):
-    """Searche for a client by any of the parameters."""
+    """Searche for a client by any of the parameters"""
     with conn.cursor() as cur:
         # Начинаем с запроса к client
         query = """
@@ -188,3 +188,4 @@ if __name__ == "__main__":
 
 
     print("\nРабота завершена")
+
